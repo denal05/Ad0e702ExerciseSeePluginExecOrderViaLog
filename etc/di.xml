@@ -3,21 +3,21 @@
 
     <type name="Magento\Cms\Controller\Index\Index">
         <plugin name="Denal05__Magento_Cms_Controller_Index_Index__Plugin"
-                type="Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PA10ba"
+                type="Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginASortOrder10"
                 sortOrder="10"
                 disabled="false" />
     </type>
 
     <type name="Magento\Cms\Controller\Index\Index">
         <plugin name="Denal05__Magento_Cms_Controller_Index_Index__Plugin"
-                type="Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PB20ba"
+                type="Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginBSortOrder20"
                 sortOrder="20"
                 disabled="false" />
     </type>
 
     <type name="Magento\Cms\Controller\Index\Index">
         <plugin name="Denal05__Magento_Cms_Controller_Index_Index__Plugin"
-                type="Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PC30ba"
+                type="Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginCSortOrder30"
                 sortOrder="30"
                 disabled="false" />
     </type>

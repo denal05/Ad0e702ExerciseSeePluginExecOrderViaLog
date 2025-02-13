@@ -6,7 +6,7 @@ namespace Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin;
 use Exception;
 use Psr\Log\LoggerInterface as PsrLoggerInterface;
 
-class PA10ba
+class PluginASortOrder10
 {
     private $logger;
 
