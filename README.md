@@ -59,7 +59,7 @@ Plugin A (sort order 10): beforeExecute()
 Plugin D (sort order 20): beforeExecute()
 Plugin D (sort order 20): aroundExecute() - 1st half before callable
   Plugin C (sort order 30): beforeExecute()
-    \Magento\Cms\Controller\Index\Index::execute()
+    ::execute()
   Plugin C (sort order 30): afterExecute()
 Plugin D (sort order 20): aroundExecute() - 2nd half after callable
 Plugin A (sort order 10): afterExecute()
@@ -89,8 +89,10 @@ SCENARIO B (without a `callable` around)
 | after     | afterExecute()  | afterExecute()                | afterExecute()  |
 
 At the present I'm getting an error that I'm passing it something unexpected:  
+
 `There is an error in /var/www/ad0-e702/generated/code/Denal05/Ad0e702ExerciseSeePluginExecOrderViaLog/Console/Command/TriggerPluginsCommand/Interceptor.php at line: 23
 Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Console\Command\TriggerPluginsCommand\Interceptor::execute(): Return value must be of type int, Symfony\Component\Console\Input\ArgvInput returned#0 /var/www/ad0-e702/vendor/symfony/console/Command/Command.php(326): Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Console\Command\TriggerPluginsCommand\Interceptor->execute()`
+
 ----
 
 SCENARIO C
@@ -109,7 +111,7 @@ Plugin F (sort order 10): aroundExecute() - 1st half before callable
   Plugin B (sort order 20): beforeExecute()
   Plugin G (sort order 30): beforeExecute()
   Plugin G (sort order 30): aroundExecute() - 1st half before callable
-    \Magento\Cms\Controller\Index\Index::execute()
+    ::execute()
   Plugin G (sort order 30): aroundExecute() - 2nd half after callable
   Plugin B (sort order 20): afterExecute()
   Plugin G (sort order 30): afterExecute()
