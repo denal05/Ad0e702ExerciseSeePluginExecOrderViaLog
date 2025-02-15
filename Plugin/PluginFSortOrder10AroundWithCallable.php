@@ -5,6 +5,7 @@ namespace Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin;
 
 use Exception;
 use Psr\Log\LoggerInterface as PsrLoggerInterface;
+use Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Console\Command\TriggerPluginsCommand;
 
 class PluginFSortOrder10AroundWithCallable
 {
@@ -18,7 +19,7 @@ class PluginFSortOrder10AroundWithCallable
     }
 
     public function beforeExecute(
-        \Magento\Cms\Controller\Index\Index $subject
+        TriggerPluginsCommand $subject
     ) {
         try {
             $this->logger->debug(__METHOD__);
@@ -29,7 +30,7 @@ class PluginFSortOrder10AroundWithCallable
     }
 
     public function aroundExecute(
-        \Magento\Cms\Controller\Index\Index $subject,
+        TriggerPluginsCommand $subject,
         callable $next,
         ...$args
     ) {
@@ -44,7 +45,7 @@ class PluginFSortOrder10AroundWithCallable
     }
 
     public function afterExecute(
-        \Magento\Cms\Controller\Index\Index $subject,
+        TriggerPluginsCommand $subject,
         $result
     ) {
         try {

@@ -1,53 +1,63 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
 
-    <type name="Magento\Cms\Controller\Index\Index">
-        <plugin name="Denal05__Magento_Cms_Controller_Index_Index__Plugin"
-                type="Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginASortOrder10"
-                sortOrder="10"
-                disabled="true" />
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="consolecommand_trigger_plugins"
+                      xsi:type="object"
+                >Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Console\Command\TriggerPluginsCommand</item>
+            </argument>
+        </arguments>
     </type>
 
-    <type name="Magento\Cms\Controller\Index\Index">
-        <plugin name="Denal05__Magento_Cms_Controller_Index_Index__Plugin"
+    <type name="Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Console\Command\TriggerPluginsCommand">
+        <plugin name="Denal05__Demo_Plugin_A"
+                type="Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginASortOrder10"
+                sortOrder="10"
+                disabled="false" />
+    </type>
+
+    <type name="Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Console\Command\TriggerPluginsCommand">
+        <plugin name="Denal05__Demo_Plugin_B"
                 type="Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginBSortOrder20"
                 sortOrder="20"
                 disabled="false" />
     </type>
 
-    <type name="Magento\Cms\Controller\Index\Index">
-        <plugin name="Denal05__Magento_Cms_Controller_Index_Index__Plugin"
+    <type name="Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Console\Command\TriggerPluginsCommand">
+        <plugin name="Denal05__Demo_Plugin_C"
                 type="Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginCSortOrder30"
                 sortOrder="30"
-                disabled="true" />
+                disabled="false" />
     </type>
 
-    <type name="Magento\Cms\Controller\Index\Index">
-        <plugin name="Denal05__Magento_Cms_Controller_Index_Index__Plugin"
+    <type name="Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Console\Command\TriggerPluginsCommand">
+        <plugin name="Denal05__Demo_Plugin_D"
                 type="Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginDSortOrder20AroundWithCallable"
                 sortOrder="20"
                 disabled="true" />
     </type>
 
-    <type name="Magento\Cms\Controller\Index\Index">
-        <plugin name="Denal05__Magento_Cms_Controller_Index_Index__Plugin"
+    <type name="Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Console\Command\TriggerPluginsCommand">
+        <plugin name="Denal05__Demo_Plugin_E"
                 type="Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginESortOrder20AroundNoCallable"
                 sortOrder="20"
                 disabled="true" />
     </type>
 
-    <type name="Magento\Cms\Controller\Index\Index">
-        <plugin name="Denal05__Magento_Cms_Controller_Index_Index__Plugin"
+    <type name="Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Console\Command\TriggerPluginsCommand">
+        <plugin name="Denal05__Demo_Plugin_F"
                 type="Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginFSortOrder10AroundWithCallable"
                 sortOrder="10"
-                disabled="false" />
+                disabled="true" />
     </type>
 
-    <type name="Magento\Cms\Controller\Index\Index">
-        <plugin name="Denal05__Magento_Cms_Controller_Index_Index__Plugin"
+    <type name="Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Console\Command\TriggerPluginsCommand">
+        <plugin name="Denal05__Demo_Plugin_G"
                 type="Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginGSortOrder30AroundWithCallable"
                 sortOrder="30"
-                disabled="false" />
+                disabled="true" />
     </type>
 
 </config>
