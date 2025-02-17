@@ -42,7 +42,7 @@ class TriggerPluginsCommand extends Command
 
         try {
             $output->writeln('<info>The demo plugins have been triggerred successfully.</info>');
-            $output->writeln('<info>Please inspect the var/log/debug.log file.</info>');
+            $output->writeln('<info>Please inspect var/log/Denal05_Ad0e702ExerciseSeePluginExecOrderViaLog/debug.log</info>');
         } catch (LocalizedException $e) {
             $output->writeln(sprintf(
                 '<error>%s</error>',

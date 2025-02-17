@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
 
+    <!-- Custom CLI Command -->
     <type name="Magento\Framework\Console\CommandListInterface">
         <arguments>
             <argument name="commands" xsi:type="array">
@@ -11,6 +12,70 @@
         </arguments>
     </type>
 
+    <!-- Custom Log -->
+    <virtualType name="Denal05ErrorLogger" type="Magento\Framework\Logger\Monolog">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="error"
+                      xsi:type="object"
+                >Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Logger\Handler\ErrorHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Denal05DebugLogger" type="Magento\Framework\Logger\Monolog">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="debug"
+                      xsi:type="object"
+                >Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Logger\Handler\DebugHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginASortOrder10">
+        <arguments>
+            <argument name="logger" xsi:type="object">Denal05DebugLogger</argument>
+        </arguments>
+    </type>
+
+    <type name="Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginBSortOrder20">
+        <arguments>
+            <argument name="logger" xsi:type="object">Denal05DebugLogger</argument>
+        </arguments>
+    </type>
+
+    <type name="Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginCSortOrder30">
+        <arguments>
+            <argument name="logger" xsi:type="object">Denal05DebugLogger</argument>
+        </arguments>
+    </type>
+
+    <type name="Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginDSortOrder20AroundWithCallable">
+        <arguments>
+            <argument name="logger" xsi:type="object">Denal05DebugLogger</argument>
+        </arguments>
+    </type>
+
+    <type name="Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginESortOrder20AroundNoCallable">
+        <arguments>
+            <argument name="logger" xsi:type="object">Denal05DebugLogger</argument>
+        </arguments>
+    </type>
+
+    <type name="Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginFSortOrder10AroundWithCallable">
+        <arguments>
+            <argument name="logger" xsi:type="object">Denal05DebugLogger</argument>
+        </arguments>
+    </type>
+
+    <type name="Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginGSortOrder30AroundWithCallable">
+        <arguments>
+            <argument name="logger" xsi:type="object">Denal05DebugLogger</argument>
+        </arguments>
+    </type>
+
+    <!-- Plugins -->
     <type name="Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Console\Command\TriggerPluginsCommand">
         <plugin name="Denal05__Demo_Plugin_A"
                 type="Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginASortOrder10"

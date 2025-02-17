@@ -5,7 +5,7 @@ Usage:
 ```php
 > bin/magento ad0e702:trigger:plugins
 The demo plugins have been triggerred successfully. 
-Please inspect the var/log/debug.log file.
+Please inspect var/log/Denal05_Ad0e702ExerciseSeePluginExecOrderViaLog/debug.log
 ```
 
 According to the devdocs there are three scenarios:  
