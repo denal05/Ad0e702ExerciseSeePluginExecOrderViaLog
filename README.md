@@ -131,3 +131,46 @@ The following is a relevant excerpt from `var/log/Denal05_Ad0e702ExerciseSeePlug
 [2025-02-17T10:47:01.948133+00:00] main.DEBUG: Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginFSortOrder10AroundWithCallable::aroundExecute second half [] []
 [2025-02-17T10:47:01.948290+00:00] main.DEBUG: Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginFSortOrder10AroundWithCallable::afterExecute [] []
 ```
+
+Now, why is that? What governs this weird plugin execution order?  
+After some careful observation, it seems that three rules emerge, in the following order of importance:  
+1) The lower the sort order, the higher the priority.  
+2) The "before" methods come first, then the "around", and finally the "after" methods
+3) The "around" methods encapsulate the rest of the plugins
+
+This explains all three scenarios. Let's take a look at scenarios A and B with callable:  
+
+Scenario A
+
+```php
+Plugin A (sort order 10): beforeExecute()
+Plugin B (sort order 20): beforeExecute()
+Plugin C (sort order 30): beforeExecute()
+::execute()
+Plugin A (sort order 10): afterExecute()
+Plugin B (sort order 20): afterExecute()
+Plugin C (sort order 30): afterExecute()
+```
+- Since the most important rule is that the plugin with the lowest sort order number has the highest priority, Plugin A executes first.
+- Furthermore, since "before" comes, well, before the "after", the "before" method of Plugin A executes first.
+- The rest is history.
+
+Scenario B
+
+```php
+Plugin A (sort order 10): beforeExecute()
+Plugin D (sort order 20): beforeExecute()
+Plugin D (sort order 20): aroundExecute() - 1st half before callable
+  Plugin C (sort order 30): beforeExecute()
+    ::execute()
+  Plugin C (sort order 30): afterExecute()
+Plugin D (sort order 20): aroundExecute() - 2nd half after callable
+Plugin A (sort order 10): afterExecute()
+Plugin D (sort order 20): afterExecute()
+```
+- Plugin A has the lowest sort order number, i.e., the highest priority, so it executes first. Furthermore, the "before" method of Plugin A executes first.
+- The next priority is Plugin D's "before" method.
+- Next comes the first half of Plugin D's "around" method, which encapsulates the rest of the plugins (in this case only Plugin C).
+- Then Plugin C's "before" method executes, and afterwards its "after" method.
+- Now the plugin stack starts to pop: Plugin C is done, and the second half of Plugin D's "around" method finishes.
+- Lastly, the "after" methods execute, but according to priority, Plugin A's "after" method comes before Plugin D's "after" method.
