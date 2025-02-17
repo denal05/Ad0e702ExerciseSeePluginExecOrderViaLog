@@ -32,7 +32,7 @@ Plugin A (sort order 10): afterExecute()
 Plugin B (sort order 20): afterExecute()
 Plugin C (sort order 30): afterExecute()
 ```
-The following is a relevant excerpt from `var/log/debug.log`
+The following is a relevant excerpt from `var/log/Denal05_Ad0e702ExerciseSeePluginExecOrderViaLog/debug.log`
 ```php
 [2025-02-15T20:16:09.013425+00:00] main.DEBUG: Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginASortOrder10::beforeExecute [] []
 [2025-02-15T20:16:09.013787+00:00] main.DEBUG: Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginBSortOrder20::beforeExecute [] []
@@ -65,7 +65,7 @@ Plugin D (sort order 20): aroundExecute() - 2nd half after callable
 Plugin A (sort order 10): afterExecute()
 Plugin D (sort order 20): afterExecute()
 ```
-The following is a relevant excerpt from `var/log/debug.log`
+The following is a relevant excerpt from `var/log/Denal05_Ad0e702ExerciseSeePluginExecOrderViaLog/debug.log`
 ```php
 [2025-02-15T20:47:33.881321+00:00] main.DEBUG: Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginASortOrder10::beforeExecute [] []
 [2025-02-15T20:47:33.881672+00:00] main.DEBUG: Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginDSortOrder20AroundWithCallable::beforeExecute [] []
@@ -118,7 +118,16 @@ Plugin F (sort order 10): aroundExecute() - 1st half before callable
 Plugin F (sort order 10): aroundExecute() - 2nd half after callable
 Plugin F (sort order 10): afterExecute()
 ```
-The following is a relevant excerpt from `var/log/debug.log`
+The following is a relevant excerpt from `var/log/Denal05_Ad0e702ExerciseSeePluginExecOrderViaLog/debug.log`
 ```php
-TBD
+[2025-02-17T10:47:01.941232+00:00] main.DEBUG: Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginFSortOrder10AroundWithCallable::beforeExecute [] []
+[2025-02-17T10:47:01.941499+00:00] main.DEBUG: Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginFSortOrder10AroundWithCallable::aroundExecute first half [] []
+[2025-02-17T10:47:01.941658+00:00] main.DEBUG: Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginBSortOrder20::beforeExecute [] []
+[2025-02-17T10:47:01.941815+00:00] main.DEBUG: Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginGSortOrder30AroundWithCallable::beforeExecute [] []
+[2025-02-17T10:47:01.941918+00:00] main.DEBUG: Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginGSortOrder30AroundWithCallable::aroundExecute first half [] []
+[2025-02-17T10:47:01.947531+00:00] main.DEBUG: Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginGSortOrder30AroundWithCallable::aroundExecute second half [] []
+[2025-02-17T10:47:01.947806+00:00] main.DEBUG: Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginBSortOrder20::afterExecute [] []
+[2025-02-17T10:47:01.947975+00:00] main.DEBUG: Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginGSortOrder30AroundWithCallable::afterExecute [] []
+[2025-02-17T10:47:01.948133+00:00] main.DEBUG: Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginFSortOrder10AroundWithCallable::aroundExecute second half [] []
+[2025-02-17T10:47:01.948290+00:00] main.DEBUG: Denal05\Ad0e702ExerciseSeePluginExecOrderViaLog\Plugin\PluginFSortOrder10AroundWithCallable::afterExecute [] []
 ```
