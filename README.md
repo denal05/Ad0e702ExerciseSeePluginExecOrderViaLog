@@ -7,6 +7,8 @@ Usage:
 The demo plugins have been triggerred successfully. 
 Please inspect var/log/Denal05_Ad0e702ExerciseSeePluginExecOrderViaLog/debug.log
 ```
+Mark Shust has written an excellent article on this topic:  
+[The Unexpected Behavior of Magento Plugin Execution Order](https://m.academy/articles/magento-plugin-execution-order/)  
 
 According to the devdocs there are three scenarios:  
 https://developer.adobe.com/commerce/php/development/components/plugins/#examples  
